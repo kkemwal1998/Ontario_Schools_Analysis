@@ -169,11 +169,14 @@ a) Table Creation Statements:-
 
    KPI:-
     Website Duplication (Query-5)
+
     School Leadership Management (Query-4)
-    Schools Without Association Membership (Query-6)
+
+    Non-Member Schools  (Query-6)
+
     Ontario School Credits (Query-2)
 
-4) Quality Testing
+5) Quality Testing
 
     Functional Validation:-
     Testing each feature to ensure it functions as required and verifying that all filters and action filters on the report operate correctly according to the 
