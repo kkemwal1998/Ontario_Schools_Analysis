@@ -44,28 +44,50 @@ a) Table Creation Statements:-
 
    i)School Details table:
       Create Table School_Details
-      (SchoolID int primary key,
+      
+      (
+      SchoolID int primary key,
+      
       SchoolName varchar(100),
+      
       OSSD_Credits_Offered varchar(100),
+      
       PrincipalName varchar(100),
+      
       SchoolWebsite varchar(200),
+      
       SchoolLevel varchar(200),
+      
       School_Special_Conditions_Code varchar(100),
+      
       ProgramType varchar(100),
+      
       Association_Membership varchar(100)
+      
       ); 
  
    ii)Geographical Detail Table:
       Create Table Geographic_details
-      (School_Number int primary key,
+      
+      (
+       School_Number int primary key,
+       
        SchoolID int references School_Details(SchoolID),
+       
        Suite int,
+       
        PO_Box int,
+       
        Street_Address varchar(300),
+       
        City varchar(50), 
+       
        Province varchar(10),
+       
        Postal_Code varchar(100),
+       
        Region varchar(50),
+       
        School_Website varchar(300)
 
   iii) Database Queries:
