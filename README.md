@@ -43,56 +43,70 @@ Process:-
 a) Table Creation Statements:-
 
    i)School Details table:
-      Create Table School_Details
-      
-      (
-      SchoolID int primary key,
-      
-      SchoolName varchar(100),
-      
-      OSSD_Credits_Offered varchar(100),
-      
-      PrincipalName varchar(100),
-      
-      SchoolWebsite varchar(200),
-      
-      SchoolLevel varchar(200),
-      
-      School_Special_Conditions_Code varchar(100),
-      
-      ProgramType varchar(100),
-      
-      Association_Membership varchar(100)
-      
-      ); 
+         
+         - Create Table School_Details
+           
+           (
+           SchoolID int primary key,
+           
+           SchoolName varchar(100),
+           
+           OSSD_Credits_Offered varchar(100),
+           
+           PrincipalName varchar(100),
+           
+           SchoolWebsite varchar(200),
+           
+           SchoolLevel varchar(200),
+           
+           School_Special_Conditions_Code varchar(100),
+           
+           ProgramType varchar(100),
+           
+           Association_Membership varchar(100)
+           
+           );
+
+       -  Creating a clustered index on Table:
+       
+          Create index school_details_index on school_details(schoolid);
+          
+          Cluster school_details using school_details_index;
+
  
    ii)Geographical Detail Table:
-      Create Table Geographic_details
+        - Create Table Geographic_details
       
-      (
-       School_Number int primary key,
-       
-       SchoolID int references School_Details(SchoolID),
-       
-       Suite int,
-       
-       PO_Box int,
-       
-       Street_Address varchar(300),
-       
-       City varchar(50), 
-       
-       Province varchar(10),
-       
-       Postal_Code varchar(100),
-       
-       Region varchar(50),
-       
-       School_Website varchar(300)
+          (
+           School_Number int primary key,
+           
+           SchoolID int references School_Details(SchoolID),
+           
+           Suite int,
+           
+           PO_Box int,
+           
+           Street_Address varchar(300),
+           
+           City varchar(50), 
+           
+           Province varchar(10),
+           
+           Postal_Code varchar(100),
+           
+           Region varchar(50),
+           
+           School_Website varchar(300)
+
+        - Creating a clustered index on Table:
+        
+          create index geographic_details_index on geographic_details(school_number);
+          
+          cluster geographic_details using geographic_details_index;
 
   iii) Database Queries:
 
-        Query-1 : Find the school names with no condition code of  in eastern region.
+        Query-1 : Find the school names with no condition code in the eastern region.
         select sd.schoolname as School_Name, sd.school_special_conditions_code as Condition_Code,GD.region as Region
         from school_details sd 
         INNER JOIN 
